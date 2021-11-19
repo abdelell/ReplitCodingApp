@@ -11,18 +11,9 @@ struct MainView: View {
     
     @State private var codeText = ""
     @State private var lineNumbersText = "1"
-//    @State private var codingLines = [Int]()
     
     var body: some View {
-        HStack {
-//            LineNumbersTextView(text: $lineNumbersText, contentOffset: $scrollingContentOffset)
-//                .padding(.vertical)
-////                .padding(.trailing, 2)
-//                .font(.body)
-//                .frame(maxWidth: 35)
-//
-//            Divider()
-            
+        ZStack {
             CodingTextView(text: $codeText, isSelectable: true)
                 .padding(.vertical)
                 .onAppear {
@@ -35,24 +26,25 @@ struct MainView: View {
                         }
                     }
                 }
-//                .onChange(of: codingLines) { newValue in
-//                    var currentNumber = 1
-//                    var lineNumbers = ""
-//
-//                    print(newValue)
-//                    for numberOfLines in newValue {
-//
-//                        lineNumbers = "\(lineNumbers)\(currentNumber)\(String(repeating: "\n", count: numberOfLines))"
-//                        print(currentNumber)
-//                        currentNumber += 1
-//                    }
-//
-//                    lineNumbersText = lineNumbers
-//                }
-            
-            
+            HStack {
+                Spacer()
+                
+                VStack {
+                    Spacer()
+                    
+                    Button {
+                        print("Yo")
+                    } label: {
+                        Image(systemName: "play.fill")
+                            .foregroundColor(.white)
+                            .frame(width: 70, height: 70)
+                            .background(Color.playButtonBrightGreen)
+                            .clipShape(Circle())
+                            .padding()
+                    }
+                }
+            }
         }
-        
     }
 }
 
