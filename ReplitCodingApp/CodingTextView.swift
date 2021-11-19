@@ -1,0 +1,133 @@
+//
+//  CustomTextView.swift
+//  ReplitCodingApp
+//
+//  Created by user on 11/18/21.
+//
+
+import Foundation
+import SwiftUI
+
+struct CodingTextView: UIViewRepresentable {
+    
+    @Binding var text: String
+    @State var lineNumbersText = "1"
+    @State var lineNumbersViewHeight = 100.0
+    
+    var isSelectable: Bool
+    var textStyle: UIFont.TextStyle = .body
+    
+    var lineNumbersView = UITextView()
+    
+    func makeUIView(context: Context) -> UITextView {
+        let textView = UITextView()
+        
+        textView.delegate = context.coordinator
+        textView.font = UIFont.preferredFont(forTextStyle: textStyle)
+        textView.autocapitalizationType = .none
+        textView.autocorrectionType = .no
+        textView.isSelectable = isSelectable
+        textView.isUserInteractionEnabled = true
+        textView.backgroundColor = UIColor(.replitBackgroundColor)
+        textView.tintColor = .white
+        textView.contentOffset = CGPoint(x: 100.0, y: 0.0)
+        textView.textContainerInset = UIEdgeInsets(top: 7, left: 60, bottom: 0, right: 0)
+        
+        configLineNumbersView()
+        textView.addSubview(lineNumbersView)
+
+        let customView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 44))
+        customView.backgroundColor = UIColor.red
+        
+        return textView
+    }
+    
+    private func configLineNumbersView() {
+        lineNumbersView.frame = CGRect(x: 0.0, y: 0.0, width: 40, height: lineNumbersViewHeight)
+        lineNumbersView.font = UIFont.preferredFont(forTextStyle: textStyle)
+        lineNumbersView.textColor = UIColor(Color.lineNumbersGrayColor)
+        lineNumbersView.autocapitalizationType = .none
+        lineNumbersView.autocorrectionType = .no
+        lineNumbersView.isUserInteractionEnabled = true
+        lineNumbersView.backgroundColor = UIColor(.replitBackgroundColor)
+        lineNumbersView.textAlignment = .right
+        lineNumbersView.isSelectable = false
+        lineNumbersView.isScrollEnabled = false
+        lineNumbersView.text = lineNumbersText
+    }
+    
+    func updateUIView(_ uiView: UITextView, context: Context) {
+        let selectedRange = uiView.selectedRange
+        uiView.text = text
+        uiView.font = UIFont.preferredFont(forTextStyle: textStyle)
+        uiView.selectedRange = selectedRange
+        lineNumbersView.text = lineNumbersText
+        lineNumbersView.frame.size.height = lineNumbersViewHeight
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator($text, $lineNumbersText, $lineNumbersViewHeight)
+    }
+     
+    class Coordinator: NSObject, UITextViewDelegate {
+        var text: Binding<String>
+        var lineNumbersText: Binding<String>
+        var lineNumbersViewHeight: Binding<Double>
+     
+        init(_ text: Binding<String>, _ lineNumbersText: Binding<String>, _ lineNumbersViewHeight: Binding<Double>) {
+            self.text = text
+            self.lineNumbersText = lineNumbersText
+            self.lineNumbersViewHeight = lineNumbersViewHeight
+        }
+        
+        func textViewDidChange(_ textView: UITextView) {
+            let textLines = textView.text.components(separatedBy: "\n")
+            
+            var lines = [Int]()
+            
+            // To calculate the lineNumbersView's height
+            var totalNumOfLines = 0
+            
+            for line in 0..<textLines.count {
+                let lineText = textLines[line]
+                
+                var textWidth = textView.frame.inset(by: textView.textContainerInset).width
+                textWidth -= 2.0 * textView.textContainer.lineFragmentPadding
+                
+                let boundingRect = lineText.sizeOfString(constrainedToWidth: Double(textWidth), font: UIFont.preferredFont(forTextStyle: .body))
+                
+                let numberOfLines = Int(boundingRect.height / textView.font!.lineHeight)
+                totalNumOfLines += numberOfLines
+                
+                lines.append(numberOfLines)
+            }
+            updateLineNumbers(lines: lines)
+            lineNumbersViewHeight.wrappedValue = Double(totalNumOfLines) * 35.0
+            
+            self.text.wrappedValue = textView.text
+        }
+        
+        private func updateLineNumbers(lines: [Int]) {
+            var currentNumber = 1
+            var lineNumbers = ""
+            
+            for numberOfLines in lines {
+                
+                lineNumbers = "\(lineNumbers)\(currentNumber)\(String(repeating: "\n", count: numberOfLines))"
+//                print(currentNumber)
+                currentNumber += 1
+            }
+    
+            lineNumbersText.wrappedValue = lineNumbers
+        }
+    }
+}
+
+extension String {
+    func sizeOfString(constrainedToWidth width: Double, font: UIFont) -> CGSize {
+        return (self as NSString).boundingRect(with: CGSize(width: width, height: Double.greatestFiniteMagnitude),
+                                                 options: NSStringDrawingOptions.usesLineFragmentOrigin,
+                                                 attributes: [NSAttributedString.Key.font: font],
+            context: nil).size
+    }
+}
