@@ -16,24 +16,22 @@ struct MainView: View {
         ZStack {
             CodingTextView(text: $codeText, isSelectable: true)
                 .padding(.vertical)
-                .onAppear {
-                    ApiRequest.uploadCode("x = 'Hello World!'\nprint(x)") { result in
-                        switch result {
-                        case .success(let output):
-                            print("Output: \(output)")
-                        case .failure(let error):
-                            print(error.localizedDescription)
-                        }
-                    }
-                }
             HStack {
                 Spacer()
-                
                 VStack {
                     Spacer()
-                    
                     Button {
-                        print("Yo")
+                        hideKeyboard()
+                        
+                        ApiRequest.uploadCode(codeText) { result in
+                            switch result {
+                            case .success(let output):
+                                print("Output: \(output)")
+                            case .failure(let error):
+                                print(error.localizedDescription)
+                            }
+                        }
+                        
                     } label: {
                         Image(systemName: "play.fill")
                             .foregroundColor(.white)
@@ -51,5 +49,16 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+    }
+}
+
+extension Character
+{
+    func unicodeScalarCodePoint() -> UInt32
+    {
+        let characterString = String(self)
+        let scalars = characterString.unicodeScalars
+
+        return scalars[scalars.startIndex].value
     }
 }

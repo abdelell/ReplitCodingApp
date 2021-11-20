@@ -14,4 +14,9 @@ extension Color {
     
     static var playButtonDarkGreen = Color(red: 0/255, green: 65/255, blue: 23/255)
     static var playButtonBrightGreen = Color(red: 0/255, green: 134/255, blue: 38/255)
+    
+    static var keyboardDarkBackground = Color(red: 48/255, green: 51/255, blue: 56/255)
+    static var keyBackground = Color(red: 110/255, green: 111/255, blue: 115/255)
+    
+    static var commentColor = Color(red: 84/255, green: 128/255, blue: 73/255)
 }

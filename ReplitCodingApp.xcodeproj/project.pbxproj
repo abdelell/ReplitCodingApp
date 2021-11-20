@@ -16,6 +16,7 @@
 		CEDBAECB27461B2D000842B9 /* CodingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBAECA27461B2D000842B9 /* CodingTextView.swift */; };
 		CEDBAECD27461F2B000842B9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBAECC27461F2B000842B9 /* Colors.swift */; };
 		CEDBAED127473365000842B9 /* LineNumbersTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBAED027473365000842B9 /* LineNumbersTextView.swift */; };
+		CEF466272748D1C6005A9CF6 /* CustomKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF466262748D1C6005A9CF6 /* CustomKeysView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		CEDBAECA27461B2D000842B9 /* CodingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTextView.swift; sourceTree = "<group>"; };
 		CEDBAECC27461F2B000842B9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		CEDBAED027473365000842B9 /* LineNumbersTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineNumbersTextView.swift; sourceTree = "<group>"; };
+		CEF466262748D1C6005A9CF6 /* CustomKeysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomKeysView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +65,7 @@
 			children = (
 				CEDBAEB6274607FE000842B9 /* ReplitCodingApp.swift */,
 				CEDBAEB8274607FE000842B9 /* MainView.swift */,
-				CEDBAECA27461B2D000842B9 /* CodingTextView.swift */,
+				CEF466252748D1B0005A9CF6 /* CodingView */,
 				CEDBAED027473365000842B9 /* LineNumbersTextView.swift */,
 				CEDBAECC27461F2B000842B9 /* Colors.swift */,
 				CEDBAEC927461A16000842B9 /* ApiRequest */,
@@ -88,6 +90,15 @@
 				CEDBAEC7274616A4000842B9 /* NetworkError.swift */,
 			);
 			path = ApiRequest;
+			sourceTree = "<group>";
+		};
+		CEF466252748D1B0005A9CF6 /* CodingView */ = {
+			isa = PBXGroup;
+			children = (
+				CEDBAECA27461B2D000842B9 /* CodingTextView.swift */,
+				CEF466262748D1C6005A9CF6 /* CustomKeysView.swift */,
+			);
+			path = CodingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEDBAEC627460866000842B9 /* ApiRequest.swift in Sources */,
+				CEF466272748D1C6005A9CF6 /* CustomKeysView.swift in Sources */,
 				CEDBAECD27461F2B000842B9 /* Colors.swift in Sources */,
 				CEDBAECB27461B2D000842B9 /* CodingTextView.swift in Sources */,
 				CEDBAEB9274607FE000842B9 /* MainView.swift in Sources */,

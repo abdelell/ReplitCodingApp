@@ -15,7 +15,8 @@ struct CodingTextView: UIViewRepresentable {
     @State var lineNumbersViewHeight = 100.0
     
     var isSelectable: Bool
-    var textStyle: UIFont.TextStyle = .body
+    
+    let font = UIFont(name: "Courier", size: 16)
     
     var lineNumbersView = UITextView()
     
@@ -23,7 +24,8 @@ struct CodingTextView: UIViewRepresentable {
         let textView = UITextView()
         
         textView.delegate = context.coordinator
-        textView.font = UIFont.preferredFont(forTextStyle: textStyle)
+//        textView.font = UIFont.preferredFont(forTextStyle: textStyle)
+        textView.font = font
         textView.autocapitalizationType = .none
         textView.autocorrectionType = .no
         textView.isSelectable = isSelectable
@@ -36,31 +38,25 @@ struct CodingTextView: UIViewRepresentable {
         configLineNumbersView()
         textView.addSubview(lineNumbersView)
 
-        let customView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 44))
-        customView.backgroundColor = UIColor.red
+        let customKeysView = UIHostingController(rootView: CustomKeysView(textView: textView))
+        customKeysView.view.frame = CGRect(x: 0, y: 0, width: 10, height: 44)
+        customKeysView.view.backgroundColor = UIColor(Color.keyboardDarkBackground)
+        textView.inputAccessoryView = customKeysView.view
         
         return textView
     }
     
-    private func configLineNumbersView() {
-        lineNumbersView.frame = CGRect(x: 0.0, y: 0.0, width: 40, height: lineNumbersViewHeight)
-        lineNumbersView.font = UIFont.preferredFont(forTextStyle: textStyle)
-        lineNumbersView.textColor = UIColor(Color.lineNumbersGrayColor)
-        lineNumbersView.autocapitalizationType = .none
-        lineNumbersView.autocorrectionType = .no
-        lineNumbersView.isUserInteractionEnabled = true
-        lineNumbersView.backgroundColor = UIColor(.replitBackgroundColor)
-        lineNumbersView.textAlignment = .right
-        lineNumbersView.isSelectable = false
-        lineNumbersView.isScrollEnabled = false
-        lineNumbersView.text = lineNumbersText
-    }
-    
     func updateUIView(_ uiView: UITextView, context: Context) {
         let selectedRange = uiView.selectedRange
-        uiView.text = text
-        uiView.font = UIFont.preferredFont(forTextStyle: textStyle)
+        
+        let formatTextForCoding = text.replacingOccurrences(of: "“", with: "\"")
+            .replacingOccurrences(of: "”", with: "\"")
+            .replacingOccurrences(of: "‘", with: "'")
+            .replacingOccurrences(of: "’", with: "'")
+        uiView.text = formatTextForCoding
+//        uiView.font = UIFont.preferredFont(forTextStyle: textStyle)
         uiView.selectedRange = selectedRange
+        
         lineNumbersView.text = lineNumbersText
         lineNumbersView.frame.size.height = lineNumbersViewHeight
     }
@@ -114,12 +110,31 @@ struct CodingTextView: UIViewRepresentable {
             for numberOfLines in lines {
                 
                 lineNumbers = "\(lineNumbers)\(currentNumber)\(String(repeating: "\n", count: numberOfLines))"
-//                print(currentNumber)
                 currentNumber += 1
             }
     
             lineNumbersText.wrappedValue = lineNumbers
         }
+    }
+}
+
+
+// UI Configurations
+extension CodingTextView {
+    
+    private func configLineNumbersView() {
+        lineNumbersView.frame = CGRect(x: 0.0, y: 0.0, width: 40, height: lineNumbersViewHeight)
+//        lineNumbersView.font = UIFont.preferredFont(forTextStyle: textStyle)
+        lineNumbersView.font = font
+        lineNumbersView.textColor = UIColor(Color.lineNumbersGrayColor)
+        lineNumbersView.autocapitalizationType = .none
+        lineNumbersView.autocorrectionType = .no
+        lineNumbersView.isUserInteractionEnabled = true
+        lineNumbersView.backgroundColor = UIColor(.replitBackgroundColor)
+        lineNumbersView.textAlignment = .right
+        lineNumbersView.isSelectable = false
+        lineNumbersView.isScrollEnabled = false
+        lineNumbersView.text = lineNumbersText
     }
 }
 
@@ -131,3 +146,11 @@ extension String {
             context: nil).size
     }
 }
+
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif
