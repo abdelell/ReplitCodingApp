@@ -18,7 +18,7 @@ struct CodingTextView: UIViewRepresentable {
     
     let font = UIFont(name: "Courier", size: 16)
     
-    var lineNumbersView = UITextView()
+    @State var lineNumbersView = UITextView()
     
     func makeUIView(context: Context) -> UITextView {
         let textView = UITextView()
@@ -52,13 +52,12 @@ struct CodingTextView: UIViewRepresentable {
             .replacingOccurrences(of: "”", with: "\"")
             .replacingOccurrences(of: "‘", with: "'")
             .replacingOccurrences(of: "’", with: "'")
-        uiView.text = formatTextForCoding
+            .replacingOccurrences(of: "\t", with: "  ")
+        uiView.attributedText = formatTextForCoding.highlightSyntax(font: font!)
         uiView.selectedRange = selectedRange
         
         lineNumbersView.text = lineNumbersText
         lineNumbersView.frame.size.height = lineNumbersViewHeight
-        print("Nums: \(self.lineNumbersView.frame.size.height)")
-//        lineNumbersView.layoutSubviews()
     }
     
     func makeCoordinator() -> Coordinator {
@@ -103,7 +102,6 @@ struct CodingTextView: UIViewRepresentable {
                 lines.append(numberOfLines)
             }
             updateLineNumbers(lines: lines)
-            print("Line Nums: \(totalNumOfLines)")
             self.lineNumbersViewHeight.wrappedValue = Double(totalNumOfLines) * 35.0
             
             self.text.wrappedValue = textView.text

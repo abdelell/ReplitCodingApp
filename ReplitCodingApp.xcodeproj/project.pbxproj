@@ -20,6 +20,7 @@
 		CEF4662B2749CBAA005A9CF6 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4662A2749CBAA005A9CF6 /* RoundedCorner.swift */; };
 		CEF4662D2749CBD8005A9CF6 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4662C2749CBD8005A9CF6 /* PlayButton.swift */; };
 		CEF4662F2749CCBD005A9CF6 /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4662E2749CCBD005A9CF6 /* ConsoleView.swift */; };
+		CEF46636274B5E3C005A9CF6 /* HighlightSyntaxStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF46635274B5E3C005A9CF6 /* HighlightSyntaxStringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		CEF4662A2749CBAA005A9CF6 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		CEF4662C2749CBD8005A9CF6 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		CEF4662E2749CCBD005A9CF6 /* ConsoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleView.swift; sourceTree = "<group>"; };
+		CEF46635274B5E3C005A9CF6 /* HighlightSyntaxStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightSyntaxStringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +112,9 @@
 			isa = PBXGroup;
 			children = (
 				CEDBAECA27461B2D000842B9 /* CodingTextView.swift */,
-				CEF4662C2749CBD8005A9CF6 /* PlayButton.swift */,
 				CEF466262748D1C6005A9CF6 /* CustomKeysView.swift */,
+				CEF4662C2749CBD8005A9CF6 /* PlayButton.swift */,
+				CEF46635274B5E3C005A9CF6 /* HighlightSyntaxStringExtension.swift */,
 			);
 			path = Coding;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				CEDBAEC8274616A4000842B9 /* NetworkError.swift in Sources */,
 				CEF466292748E8B8005A9CF6 /* ConsoleTextView.swift in Sources */,
 				CEDBAEB7274607FE000842B9 /* ReplitCodingApp.swift in Sources */,
+				CEF46636274B5E3C005A9CF6 /* HighlightSyntaxStringExtension.swift in Sources */,
 				CEF4662F2749CCBD005A9CF6 /* ConsoleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

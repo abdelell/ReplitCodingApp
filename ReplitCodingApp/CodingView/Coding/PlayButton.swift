@@ -10,6 +10,7 @@ import SwiftUI
 
 struct PlayButton: View {
     @Binding var codeText: String
+    @Binding var consoleText: String
     
     var body: some View {
         HStack {
@@ -22,6 +23,7 @@ struct PlayButton: View {
                     ApiRequest.uploadCode(codeText) { result in
                         switch result {
                         case .success(let output):
+                            consoleText = output
                             print("Output: \(output)")
                         case .failure(let error):
                             print(error.localizedDescription)
@@ -36,6 +38,7 @@ struct PlayButton: View {
                         .clipShape(Circle())
                         .padding()
                 }
+                .animation(.easeOut.speed(1.2))
             }
         }
     }

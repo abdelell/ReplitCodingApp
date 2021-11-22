@@ -22,10 +22,10 @@ struct ConsoleTextView: UIViewRepresentable {
         textView.autocorrectionType = .no
         textView.isUserInteractionEnabled = true
         textView.isEditable = false
-        textView.backgroundColor = UIColor(.replitBackgroundColor)
+        textView.backgroundColor = UIColor(.consoleBackgroundColor)
         textView.tintColor = .white
-//        textView.contentOffset = CGPoint(x: 100.0, y: 0.0)
-        textView.textContainerInset = UIEdgeInsets(top: 34, left: 10, bottom: 0, right: 0)
+
+        textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 0)
         
         return textView
     }

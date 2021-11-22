@@ -13,7 +13,7 @@ struct CustomKeysView: View {
     
     var body: some View {
         HStack(spacing: 7) {
-            KeyButton(text: "tab", enteredText: " ", textView: textView)
+            KeyButton(text: "tab", enteredText: "  ", textView: textView)
             KeyButton(text: "+", enteredText: "+", textView: textView)
             KeyButton(text: "=", enteredText: "=", textView: textView)
             KeyButton(text: "\"", enteredText: "\"", textView: textView)
@@ -30,13 +30,15 @@ struct KeyButton: View {
     @State var textView: UITextView
     
     var body: some View {
-        Text(text)
-            .foregroundColor(.white)
-            .frame(minWidth: 0, maxWidth: 50, maxHeight: 40)
-            .background(Color.keyBackground)
-            .cornerRadius(5)
-            .onTapGesture {
-                textView.insertText(enteredText)
-            }
+        Button {
+            textView.insertText(enteredText)
+        } label: {
+            Text(text)
+                .foregroundColor(.white)
+                .frame(minWidth: 0, maxWidth: 50, maxHeight: 40)
+                .background(Color.keyBackground)
+                .cornerRadius(5)
+        }
+        .contentShape(Rectangle())
     }
 }
