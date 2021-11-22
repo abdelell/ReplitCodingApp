@@ -24,7 +24,6 @@ struct CodingTextView: UIViewRepresentable {
         let textView = UITextView()
         
         textView.delegate = context.coordinator
-//        textView.font = UIFont.preferredFont(forTextStyle: textStyle)
         textView.font = font
         textView.autocapitalizationType = .none
         textView.autocorrectionType = .no
@@ -54,26 +53,32 @@ struct CodingTextView: UIViewRepresentable {
             .replacingOccurrences(of: "‘", with: "'")
             .replacingOccurrences(of: "’", with: "'")
         uiView.text = formatTextForCoding
-//        uiView.font = UIFont.preferredFont(forTextStyle: textStyle)
         uiView.selectedRange = selectedRange
         
         lineNumbersView.text = lineNumbersText
         lineNumbersView.frame.size.height = lineNumbersViewHeight
+        print("Nums: \(self.lineNumbersView.frame.size.height)")
+//        lineNumbersView.layoutSubviews()
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator($text, $lineNumbersText, $lineNumbersViewHeight)
+        Coordinator($text, $lineNumbersText, $lineNumbersViewHeight, font!)
     }
      
     class Coordinator: NSObject, UITextViewDelegate {
         var text: Binding<String>
         var lineNumbersText: Binding<String>
         var lineNumbersViewHeight: Binding<Double>
+        var font: UIFont
      
-        init(_ text: Binding<String>, _ lineNumbersText: Binding<String>, _ lineNumbersViewHeight: Binding<Double>) {
+        init(_ text: Binding<String>,
+             _ lineNumbersText: Binding<String>,
+             _ lineNumbersViewHeight: Binding<Double>,
+             _ font: UIFont) {
             self.text = text
             self.lineNumbersText = lineNumbersText
             self.lineNumbersViewHeight = lineNumbersViewHeight
+            self.font = font
         }
         
         func textViewDidChange(_ textView: UITextView) {
@@ -90,7 +95,7 @@ struct CodingTextView: UIViewRepresentable {
                 var textWidth = textView.frame.inset(by: textView.textContainerInset).width
                 textWidth -= 2.0 * textView.textContainer.lineFragmentPadding
                 
-                let boundingRect = lineText.sizeOfString(constrainedToWidth: Double(textWidth), font: UIFont.preferredFont(forTextStyle: .body))
+                let boundingRect = lineText.sizeOfString(constrainedToWidth: Double(textWidth), font: font)
                 
                 let numberOfLines = Int(boundingRect.height / textView.font!.lineHeight)
                 totalNumOfLines += numberOfLines
@@ -98,7 +103,8 @@ struct CodingTextView: UIViewRepresentable {
                 lines.append(numberOfLines)
             }
             updateLineNumbers(lines: lines)
-            lineNumbersViewHeight.wrappedValue = Double(totalNumOfLines) * 35.0
+            print("Line Nums: \(totalNumOfLines)")
+            self.lineNumbersViewHeight.wrappedValue = Double(totalNumOfLines) * 35.0
             
             self.text.wrappedValue = textView.text
         }

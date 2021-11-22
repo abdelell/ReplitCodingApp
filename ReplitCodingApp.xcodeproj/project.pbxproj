@@ -15,8 +15,11 @@
 		CEDBAEC8274616A4000842B9 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBAEC7274616A4000842B9 /* NetworkError.swift */; };
 		CEDBAECB27461B2D000842B9 /* CodingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBAECA27461B2D000842B9 /* CodingTextView.swift */; };
 		CEDBAECD27461F2B000842B9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBAECC27461F2B000842B9 /* Colors.swift */; };
-		CEDBAED127473365000842B9 /* LineNumbersTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBAED027473365000842B9 /* LineNumbersTextView.swift */; };
 		CEF466272748D1C6005A9CF6 /* CustomKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF466262748D1C6005A9CF6 /* CustomKeysView.swift */; };
+		CEF466292748E8B8005A9CF6 /* ConsoleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF466282748E8B8005A9CF6 /* ConsoleTextView.swift */; };
+		CEF4662B2749CBAA005A9CF6 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4662A2749CBAA005A9CF6 /* RoundedCorner.swift */; };
+		CEF4662D2749CBD8005A9CF6 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4662C2749CBD8005A9CF6 /* PlayButton.swift */; };
+		CEF4662F2749CCBD005A9CF6 /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4662E2749CCBD005A9CF6 /* ConsoleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +32,11 @@
 		CEDBAEC7274616A4000842B9 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		CEDBAECA27461B2D000842B9 /* CodingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingTextView.swift; sourceTree = "<group>"; };
 		CEDBAECC27461F2B000842B9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		CEDBAED027473365000842B9 /* LineNumbersTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineNumbersTextView.swift; sourceTree = "<group>"; };
 		CEF466262748D1C6005A9CF6 /* CustomKeysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomKeysView.swift; sourceTree = "<group>"; };
+		CEF466282748E8B8005A9CF6 /* ConsoleTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTextView.swift; sourceTree = "<group>"; };
+		CEF4662A2749CBAA005A9CF6 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		CEF4662C2749CBD8005A9CF6 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
+		CEF4662E2749CCBD005A9CF6 /* ConsoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +70,9 @@
 			isa = PBXGroup;
 			children = (
 				CEDBAEB6274607FE000842B9 /* ReplitCodingApp.swift */,
-				CEDBAEB8274607FE000842B9 /* MainView.swift */,
 				CEF466252748D1B0005A9CF6 /* CodingView */,
-				CEDBAED027473365000842B9 /* LineNumbersTextView.swift */,
-				CEDBAECC27461F2B000842B9 /* Colors.swift */,
 				CEDBAEC927461A16000842B9 /* ApiRequest */,
+				CEF466322749DA3B005A9CF6 /* SupportingFiles */,
 				CEDBAEBA27460803000842B9 /* Assets.xcassets */,
 				CEDBAEBC27460803000842B9 /* Preview Content */,
 			);
@@ -95,10 +99,39 @@
 		CEF466252748D1B0005A9CF6 /* CodingView */ = {
 			isa = PBXGroup;
 			children = (
-				CEDBAECA27461B2D000842B9 /* CodingTextView.swift */,
-				CEF466262748D1C6005A9CF6 /* CustomKeysView.swift */,
+				CEDBAEB8274607FE000842B9 /* MainView.swift */,
+				CEF466302749D9FE005A9CF6 /* Coding */,
+				CEF466312749DA0E005A9CF6 /* Console */,
 			);
 			path = CodingView;
+			sourceTree = "<group>";
+		};
+		CEF466302749D9FE005A9CF6 /* Coding */ = {
+			isa = PBXGroup;
+			children = (
+				CEDBAECA27461B2D000842B9 /* CodingTextView.swift */,
+				CEF4662C2749CBD8005A9CF6 /* PlayButton.swift */,
+				CEF466262748D1C6005A9CF6 /* CustomKeysView.swift */,
+			);
+			path = Coding;
+			sourceTree = "<group>";
+		};
+		CEF466312749DA0E005A9CF6 /* Console */ = {
+			isa = PBXGroup;
+			children = (
+				CEF4662E2749CCBD005A9CF6 /* ConsoleView.swift */,
+				CEF466282748E8B8005A9CF6 /* ConsoleTextView.swift */,
+			);
+			path = Console;
+			sourceTree = "<group>";
+		};
+		CEF466322749DA3B005A9CF6 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CEF4662A2749CBAA005A9CF6 /* RoundedCorner.swift */,
+				CEDBAECC27461F2B000842B9 /* Colors.swift */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,12 +206,15 @@
 			files = (
 				CEDBAEC627460866000842B9 /* ApiRequest.swift in Sources */,
 				CEF466272748D1C6005A9CF6 /* CustomKeysView.swift in Sources */,
+				CEF4662B2749CBAA005A9CF6 /* RoundedCorner.swift in Sources */,
 				CEDBAECD27461F2B000842B9 /* Colors.swift in Sources */,
 				CEDBAECB27461B2D000842B9 /* CodingTextView.swift in Sources */,
+				CEF4662D2749CBD8005A9CF6 /* PlayButton.swift in Sources */,
 				CEDBAEB9274607FE000842B9 /* MainView.swift in Sources */,
 				CEDBAEC8274616A4000842B9 /* NetworkError.swift in Sources */,
+				CEF466292748E8B8005A9CF6 /* ConsoleTextView.swift in Sources */,
 				CEDBAEB7274607FE000842B9 /* ReplitCodingApp.swift in Sources */,
-				CEDBAED127473365000842B9 /* LineNumbersTextView.swift in Sources */,
+				CEF4662F2749CCBD005A9CF6 /* ConsoleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

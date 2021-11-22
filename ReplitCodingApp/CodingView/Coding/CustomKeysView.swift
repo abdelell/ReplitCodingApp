@@ -13,8 +13,8 @@ struct CustomKeysView: View {
     
     var body: some View {
         HStack(spacing: 7) {
-            KeyButton(text: "tab", enteredText: "  ", textView: textView)
-            KeyButton(text: "/", enteredText: "/", textView: textView)
+            KeyButton(text: "tab", enteredText: " ", textView: textView)
+            KeyButton(text: "+", enteredText: "+", textView: textView)
             KeyButton(text: "=", enteredText: "=", textView: textView)
             KeyButton(text: "\"", enteredText: "\"", textView: textView)
             KeyButton(text: "(", enteredText: "(", textView: textView)
