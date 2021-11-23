@@ -21,38 +21,16 @@ struct CodingTextView: UIViewRepresentable {
     @State var lineNumbersView = UITextView()
     
     func makeUIView(context: Context) -> UITextView {
-        let textView = UITextView()
         
+        let textView = makeTextView()
         textView.delegate = context.coordinator
-        textView.font = font
-        textView.autocapitalizationType = .none
-        textView.autocorrectionType = .no
-        textView.isSelectable = isSelectable
-        textView.isUserInteractionEnabled = true
-        textView.backgroundColor = UIColor(.replitBackgroundColor)
-        textView.tintColor = .white
-        textView.contentOffset = CGPoint(x: 100.0, y: 0.0)
-        textView.textContainerInset = UIEdgeInsets(top: 7, left: 60, bottom: 0, right: 0)
-        
-        configLineNumbersView()
-        textView.addSubview(lineNumbersView)
-
-        let customKeysView = UIHostingController(rootView: CustomKeysView(textView: textView))
-        customKeysView.view.frame = CGRect(x: 0, y: 0, width: 10, height: 44)
-        customKeysView.view.backgroundColor = UIColor(Color.keyboardDarkBackground)
-        textView.inputAccessoryView = customKeysView.view
         
         return textView
     }
     
     func updateUIView(_ uiView: UITextView, context: Context) {
         let selectedRange = uiView.selectedRange
-        
-        let formatTextForCoding = text.replacingOccurrences(of: "“", with: "\"")
-            .replacingOccurrences(of: "”", with: "\"")
-            .replacingOccurrences(of: "‘", with: "'")
-            .replacingOccurrences(of: "’", with: "'")
-            .replacingOccurrences(of: "\t", with: "  ")
+        let formatTextForCoding = text.makeItCodeCompatible()
         uiView.attributedText = formatTextForCoding.highlightSyntax(font: font!)
         uiView.selectedRange = selectedRange
         
@@ -128,7 +106,6 @@ extension CodingTextView {
     
     private func configLineNumbersView() {
         lineNumbersView.frame = CGRect(x: 0.0, y: 0.0, width: 40, height: lineNumbersViewHeight)
-//        lineNumbersView.font = UIFont.preferredFont(forTextStyle: textStyle)
         lineNumbersView.font = font
         lineNumbersView.textColor = UIColor(Color.lineNumbersGrayColor)
         lineNumbersView.autocapitalizationType = .none
@@ -140,21 +117,28 @@ extension CodingTextView {
         lineNumbersView.isScrollEnabled = false
         lineNumbersView.text = lineNumbersText
     }
-}
+    
+    private func makeTextView() -> UITextView {
+        let textView = UITextView()
+        
+        textView.font = font
+        textView.autocapitalizationType = .none
+        textView.autocorrectionType = .no
+        textView.isSelectable = isSelectable
+        textView.isUserInteractionEnabled = true
+        textView.backgroundColor = UIColor(.replitBackgroundColor)
+        textView.tintColor = .white
+        textView.contentOffset = CGPoint(x: 100.0, y: 0.0)
+        textView.textContainerInset = UIEdgeInsets(top: 7, left: 60, bottom: 0, right: 0)
+        
+        configLineNumbersView()
+        textView.addSubview(lineNumbersView)
 
-extension String {
-    func sizeOfString(constrainedToWidth width: Double, font: UIFont) -> CGSize {
-        return (self as NSString).boundingRect(with: CGSize(width: width, height: Double.greatestFiniteMagnitude),
-                                                 options: NSStringDrawingOptions.usesLineFragmentOrigin,
-                                                 attributes: [NSAttributedString.Key.font: font],
-            context: nil).size
+        let customKeysView = UIHostingController(rootView: CustomKeysView(textView: textView))
+        customKeysView.view.frame = CGRect(x: 0, y: 0, width: 10, height: 44)
+        customKeysView.view.backgroundColor = UIColor(Color.keyboardDarkBackground)
+        textView.inputAccessoryView = customKeysView.view
+        
+        return textView
     }
 }
-
-#if canImport(UIKit)
-extension View {
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
-#endif

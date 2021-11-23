@@ -20,7 +20,7 @@ struct PlayButton: View {
                 Button {
                     hideKeyboard()
                     
-                    ApiRequest.uploadCode(codeText) { result in
+                    ApiRequest.uploadCode(codeText.makeItCodeCompatible()) { result in
                         switch result {
                         case .success(let output):
                             consoleText = output
