@@ -11,7 +11,7 @@ import SwiftUI
 struct ReplitCodingApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            CodingView()
                 .background(Color.replitBackgroundColor.ignoresSafeArea())
         }
     }
