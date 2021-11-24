@@ -9,6 +9,6 @@ There is currently one bug currently in the app(that I know of):
 Since this is just a minimal app, there are a few things that I would improve on: 
 - I would add code completion
 - Better landscape functionality
-- Code "blocks". I.e. Buttons on the side for different code blocks, for example a "function" button would add a pre written function the code
+- Code "blocks". I.e. Buttons on the side for different code blocks, for example a "function" button would add a pre written function in the code
 - Loading view when a user clicks on the run button
 - More code syntax highlighting
