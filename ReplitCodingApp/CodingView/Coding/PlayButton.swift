@@ -11,6 +11,7 @@ import SwiftUI
 struct PlayButton: View {
     @Binding var codeText: String
     @Binding var consoleText: String
+    @Binding var playground: Playground
     
     var body: some View {
         HStack {
@@ -18,6 +19,7 @@ struct PlayButton: View {
             VStack {
                 Spacer()
                 Button {
+                    UserDefaultsManager.updatePlaygroundCode(playground: playground, newCode: codeText)
                     hideKeyboard()
                     
                     ApiRequest.uploadCode(codeText.makeItCodeCompatible()) { result in

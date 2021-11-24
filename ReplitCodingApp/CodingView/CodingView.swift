@@ -9,8 +9,11 @@ import SwiftUI
 
 struct CodingView: View {
     
-    @State private var codeText = ""
+    @State var codeText = ""
     @State private var consoleText = ""
+    @State var playground: Playground
+    
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
     var body: some View {
         GeometryReader { geometry in
@@ -20,8 +23,9 @@ struct CodingView: View {
                         .padding(.top)
                         .padding(.bottom, 3)
                         .animation(.linear.speed(1.5))
+                        .background(Color.replitBackgroundColor)
                     
-                    PlayButton(codeText: $codeText, consoleText: $consoleText)
+                    PlayButton(codeText: $codeText, consoleText: $consoleText, playground: $playground)
                 }
                 
                 ConsoleView(output: $consoleText)
@@ -31,11 +35,15 @@ struct CodingView: View {
                     }
             }
         }
-    }
-}
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        CodingView()
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitle(playground.title)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Button(action : {
+            self.mode.wrappedValue.dismiss()
+            UserDefaultsManager.updatePlaygroundCode(playground: playground, newCode: codeText)
+        }){
+            Image(systemName: "arrow.left")
+                .foregroundColor(.white)
+        }.contentShape(Rectangle()))
     }
 }
