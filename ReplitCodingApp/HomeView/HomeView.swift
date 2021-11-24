@@ -29,6 +29,7 @@ struct HomeView: View {
                         }
                         .listRowBackground(Color.replitBackgroundColor)
                     }
+                    .onDelete(perform: delete)
                     AddPlaygroundItemView(isAdding: $isAdding, playgrounds: $playgrounds)
                         .listRowBackground(Color.replitBackgroundColor)
                 }
@@ -40,6 +41,14 @@ struct HomeView: View {
                 playgrounds = UserDefaultsManager.getPlaygrounds()
             }
         }
+    }
+    
+    func delete(at offsets: IndexSet) {
+        if let index = offsets.first {
+            print("Deleted \(playgrounds[index])")
+            UserDefaultsManager.deletePlayground(id: playgrounds[index].id)
+        }
+        playgrounds.remove(atOffsets: offsets)
     }
 }
 

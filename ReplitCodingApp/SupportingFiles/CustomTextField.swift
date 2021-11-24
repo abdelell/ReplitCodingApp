@@ -27,7 +27,6 @@ struct CustomTextField: UIViewRepresentable {
         view.delegate = context.coordinator
         view.autocorrectionType = .no
         view.tintColor = .white
-        view.returnKeyType = .done
         return view
     }
 

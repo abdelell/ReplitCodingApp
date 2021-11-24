@@ -15,9 +15,3 @@ struct ProjectItemView: View {
             .font(.headline)
     }
 }
-
-//struct ProjectItemView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProjectItemView()
-//    }
-//}

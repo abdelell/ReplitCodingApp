@@ -33,7 +33,6 @@ struct CodingTextView: UIViewRepresentable {
         let formatTextForCoding = text.makeItCodeCompatible()
         uiView.attributedText = formatTextForCoding.highlightSyntax(font: font!)
         uiView.selectedRange = selectedRange
-        
         lineNumbersView.text = lineNumbersText
         lineNumbersView.frame.size.height = lineNumbersViewHeight
     }
