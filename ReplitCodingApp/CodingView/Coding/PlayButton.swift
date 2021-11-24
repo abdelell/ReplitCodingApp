@@ -28,7 +28,7 @@ struct PlayButton: View {
                             consoleText = output
                             print("Output: \(output)")
                         case .failure(let error):
-                            consoleText = error
+                            consoleText = error.localizedDescription
                             print(error.localizedDescription)
                         }
                     }
