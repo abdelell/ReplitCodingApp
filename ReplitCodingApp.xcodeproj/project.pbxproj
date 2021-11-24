@@ -17,7 +17,6 @@
 		CEDBAECD27461F2B000842B9 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBAECC27461F2B000842B9 /* Colors.swift */; };
 		CEF466272748D1C6005A9CF6 /* CustomKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF466262748D1C6005A9CF6 /* CustomKeysView.swift */; };
 		CEF466292748E8B8005A9CF6 /* ConsoleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF466282748E8B8005A9CF6 /* ConsoleTextView.swift */; };
-		CEF4662B2749CBAA005A9CF6 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4662A2749CBAA005A9CF6 /* RoundedCorner.swift */; };
 		CEF4662D2749CBD8005A9CF6 /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4662C2749CBD8005A9CF6 /* PlayButton.swift */; };
 		CEF4662F2749CCBD005A9CF6 /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF4662E2749CCBD005A9CF6 /* ConsoleView.swift */; };
 		CEF46636274B5E3C005A9CF6 /* HighlightSyntaxStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF46635274B5E3C005A9CF6 /* HighlightSyntaxStringExtension.swift */; };
@@ -43,7 +42,6 @@
 		CEDBAECC27461F2B000842B9 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		CEF466262748D1C6005A9CF6 /* CustomKeysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomKeysView.swift; sourceTree = "<group>"; };
 		CEF466282748E8B8005A9CF6 /* ConsoleTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTextView.swift; sourceTree = "<group>"; };
-		CEF4662A2749CBAA005A9CF6 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		CEF4662C2749CBD8005A9CF6 /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		CEF4662E2749CCBD005A9CF6 /* ConsoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleView.swift; sourceTree = "<group>"; };
 		CEF46635274B5E3C005A9CF6 /* HighlightSyntaxStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightSyntaxStringExtension.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 		CEF466322749DA3B005A9CF6 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				CEF4662A2749CBAA005A9CF6 /* RoundedCorner.swift */,
 				CEF46646274CED1A005A9CF6 /* CustomTextField.swift */,
 				CEDBAECC27461F2B000842B9 /* Colors.swift */,
 				CEF4663A274CA0C9005A9CF6 /* Extensions.swift */,
@@ -259,7 +256,6 @@
 				CEF46640274CBE07005A9CF6 /* ProjectItemView.swift in Sources */,
 				CEF46643274CCAA7005A9CF6 /* UserDefaultsManager.swift in Sources */,
 				CEF466272748D1C6005A9CF6 /* CustomKeysView.swift in Sources */,
-				CEF4662B2749CBAA005A9CF6 /* RoundedCorner.swift in Sources */,
 				CEF46647274CED1A005A9CF6 /* CustomTextField.swift in Sources */,
 				CEF46645274CDB03005A9CF6 /* AddPlaygroundItemView.swift in Sources */,
 				CEF4663D274CBD65005A9CF6 /* HomeView.swift in Sources */,

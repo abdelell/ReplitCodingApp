@@ -57,25 +57,26 @@ extension UserDefaultsManager {
         let classCode2 =
         """
         class Person:
-            "This is a person class"
-            age = 10
 
-            def greet(self):
-                print('Hello')
+          name = ""
+          age = 0
+
+          def __init__(self, name, age):
+            self.name = name
+            self.age = age
+
+          def greet(self):
+            return "Hello " + self.name + "!"
+
+          def getAge(self):
+            return "You are " + str(self.age) + " years old"
 
 
         # create a new object of Person class
-        harry = Person()
+        mike = Person("PrisonMike", 21)
 
-        # Output: <function Person.greet>
-        print(Person.greet)
-
-        # Output: <bound method Person.greet of <__main__.Person object>>
-        print(harry.greet)
-
-        # Calling object's greet() method
-        # Output: Hello
-        harry.greet()
+        print(mike.greet())
+        print(mike.getAge())
         """
         
         let fibSequenceCode =

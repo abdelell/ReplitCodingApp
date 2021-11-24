@@ -67,6 +67,11 @@ extension String {
                 }
 
                 for param in params.components(separatedBy: ",") {
+                    
+                    guard param != "" else {
+                        continue
+                    }
+                    
                     // Have to use backwards search in case the function name is the same as the paramater name
                     let paramRangeInCurrentLine = (line as NSString).range(of: param, options: .backwards)
                     let paramRange = NSRange(location: previousLinesLength + lineNum + paramRangeInCurrentLine.location, length: paramRangeInCurrentLine.length)
