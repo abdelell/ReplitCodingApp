@@ -12,7 +12,10 @@ struct ReplitCodingApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
-                .background(Color.replitBackgroundColor.ignoresSafeArea())
+                .onAppear {
+                    UserDefaultsManager.isFirstTime()
+                }
+//                .background(Color.replitBackgroundColor.ignoresSafeArea())
         }
     }
 }

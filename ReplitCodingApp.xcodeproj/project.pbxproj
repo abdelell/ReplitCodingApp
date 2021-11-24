@@ -28,6 +28,7 @@
 		CEF46643274CCAA7005A9CF6 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF46642274CCAA7005A9CF6 /* UserDefaultsManager.swift */; };
 		CEF46645274CDB03005A9CF6 /* AddPlaygroundItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF46644274CDB03005A9CF6 /* AddPlaygroundItemView.swift */; };
 		CEF46647274CED1A005A9CF6 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF46646274CED1A005A9CF6 /* CustomTextField.swift */; };
+		CEF46649274E2DBF005A9CF6 /* UserDefaultsFirstTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF46648274E2DBF005A9CF6 /* UserDefaultsFirstTime.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		CEF46642274CCAA7005A9CF6 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		CEF46644274CDB03005A9CF6 /* AddPlaygroundItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaygroundItemView.swift; sourceTree = "<group>"; };
 		CEF46646274CED1A005A9CF6 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		CEF46648274E2DBF005A9CF6 /* UserDefaultsFirstTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsFirstTime.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				CEF46642274CCAA7005A9CF6 /* UserDefaultsManager.swift */,
+				CEF46648274E2DBF005A9CF6 /* UserDefaultsFirstTime.swift */,
 			);
 			path = UserDefaults;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				CEDBAECB27461B2D000842B9 /* CodingTextView.swift in Sources */,
 				CEF4662D2749CBD8005A9CF6 /* PlayButton.swift in Sources */,
 				CEF46639274CA03F005A9CF6 /* SyntaxColors.swift in Sources */,
+				CEF46649274E2DBF005A9CF6 /* UserDefaultsFirstTime.swift in Sources */,
 				CEDBAEB9274607FE000842B9 /* CodingView.swift in Sources */,
 				CEDBAEC8274616A4000842B9 /* NetworkError.swift in Sources */,
 				CEF466292748E8B8005A9CF6 /* ConsoleTextView.swift in Sources */,
@@ -411,6 +415,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -418,7 +423,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.abdel.ReplitCodingApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ReplitCodingApp;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -441,6 +446,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -448,7 +454,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.abdel.ReplitCodingApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ReplitCodingApp;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
