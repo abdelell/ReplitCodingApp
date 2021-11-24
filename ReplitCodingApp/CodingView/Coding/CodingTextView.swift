@@ -62,12 +62,13 @@ struct CodingTextView: UIViewRepresentable {
             
             var lines = [Int]()
             
-            // To calculate the lineNumbersView's height
+            // Variable used to calculate the lineNumbersView's height
             var totalNumOfLines = 0
             
             for line in 0..<textLines.count {
                 let lineText = textLines[line]
                 
+                // Calculates the textwidth and uses that to get how many lines a line will take
                 var textWidth = textView.frame.inset(by: textView.textContainerInset).width
                 textWidth -= 2.0 * textView.textContainer.lineFragmentPadding
                 

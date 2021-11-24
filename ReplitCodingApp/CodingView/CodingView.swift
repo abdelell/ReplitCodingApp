@@ -40,6 +40,8 @@ struct CodingView: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action : {
             self.mode.wrappedValue.dismiss()
+            
+            // Save code
             UserDefaultsManager.updatePlaygroundCode(playground: playground, newCode: codeText)
         }){
             Image(systemName: "arrow.left")

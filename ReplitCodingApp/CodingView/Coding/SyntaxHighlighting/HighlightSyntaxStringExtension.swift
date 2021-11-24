@@ -8,6 +8,14 @@
 import Foundation
 import SwiftUI
 
+
+// Big functio , but very straight forward and a bit repetitive
+// All it does is go line by line and checks what each line starts with
+// and how it should be highlighted.
+// In order to get the range to highlight a word, I calculate it based
+// on the previous lines' size and the range of the word in the current line.
+
+
 extension String {
     func highlightSyntax(font: UIFont) -> NSMutableAttributedString {
         let highlightDict : [String: UIColor] = ["def": SyntaxColors.blue,
